@@ -1,0 +1,22 @@
+{# header document DOCTYPE #}
+{% extends "homePage.twig" %}
+{% block title %}Home Page
+{% endblock %}
+{# /header document DOCTYPE #}
+{% block nav %}
+    {% include("layouts/navbar.twig") %}
+{% endblock nav %}
+
+{% block main %}
+    <div class="container">
+        <h1>DashBoard</h1>
+        <h2>
+            hello
+            {{ user.user_surname}}
+            {{ user.user_name }}
+        </h2>
+        <div class="contact">
+            <a class="btn btn-primary" href="{{ url_for('contact') }}" role="button">Contact</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{# header document DOCTYPE #}
+{% extends "layouts/master.twig" %}
+
+{% block title %}Home Page
+{% endblock %}
+{# header document DOCTYPE #}
+
+{% block main %}
+	{% include("layouts/flash.twig") %}
+
+		<div class="form-login col-xl-5">
+			<form method="POST" action="{{ url_for('loguser') }}" class="col-sm-12">
+				{{csrf() | raw }}
+				<input type="hidden" value={{ token }} name="token">
+				<h1>Quick App</h1>
+				<div class="form-group">
+					<label for="Email1">Email address</label>
+					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+					<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+				</div>
+				<div class="form-group form-check">
+					<input type="checkbox" class="form-check-input" id="exampleCheck1">
+					<label class="form-check-label" for="exampleCheck1">Check me out</label>
+				</div>
+				<div>
+					<a href="{{ url_for('inscription') }}">Créer un compte</a>
+					<button type="button" class="btn btn-link reset-btn" data-toggle="modal" data-target="#resetModal">Mot de pass oublier</button>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+		{# reset password #}
+		<div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Mot de passe oublié</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form action="{{ url_for('resetpassword') }}" method="POST">
+							{{csrf() | raw }}
+							<div class="form-group">
+								<label for="InputEmail1">Adresse mail</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+							</div>
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-secondary">Réinitialisé</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}

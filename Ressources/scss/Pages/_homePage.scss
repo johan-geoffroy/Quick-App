@@ -1,0 +1,17 @@
+.form-login{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50vh;
+    transform: translateY(-50vh); 
+
+    h1{
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+
+    .reset-btn {
+        position: relative;
+        float: right;
+    }
+}

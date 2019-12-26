@@ -1,0 +1,24 @@
+{# haeder document DOCTYPE #}
+{% block navbar %}
+<nav class="navbar navbar-dark bg-dark">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
+
+    <form action="{{ url_for('logout') }}" method="POST">
+    {{csrf() | raw }}
+    <button type="submit" class="btn btn-primary">Déconection</button>
+    </form>
+</nav>
+{% endblock %}
